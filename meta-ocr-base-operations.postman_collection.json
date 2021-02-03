@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "2e472b22-df9a-4b46-99b1-9c72c0554188",
+		"name": "meta-ocr-base-operations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Data - generate captchas - train",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}data/generate-captcha?characters=4&lines=true&ellipsis=true&deform=true&items=1000",
+					"host": [
+						"{{url}}data"
+					],
+					"path": [
+						"generate-captcha"
+					],
+					"query": [
+						{
+							"key": "characters",
+							"value": "4"
+						},
+						{
+							"key": "alphabet",
+							"value": "cyrillic",
+							"disabled": true
+						},
+						{
+							"key": "lines",
+							"value": "true"
+						},
+						{
+							"key": "ellipsis",
+							"value": "true"
+						},
+						{
+							"key": "deform",
+							"value": "true"
+						},
+						{
+							"key": "items",
+							"value": "1000"
+						}
+					]
+				},
+				"description": "Generate captchas with the following parameters:\nitems - # of captchas to generate\ncharacters - # of characters for each captcha to contain\nalphabet - alphabet to choose [chyrillic, latin, hebrew]\nlines - draw lines on captcha\nellipsis - draw dots on captcha\ndeform - boolean to deform the letters(skew shear)"
+			},
+			"response": []
+		},
+		{
+			"name": "Data - verify captchas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}data/verify",
+					"host": [
+						"{{url}}data"
+					],
+					"path": [
+						"verify"
+					]
+				},
+				"description": "Generate captchas with the following parameters:\nitems - # of captchas to generate\ncharacters - # of characters for each captcha to contain\nalphabet - alphabet to choose [chyrillic, latin, hebrew]\nlines - draw lines on captcha\nellipsis - draw dots on captcha\ndeform - boolean to deform the letters(skew shear)"
+			},
+			"response": []
+		},
+		{
+			"name": "Features - preprocess as characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}features/preprocess-as-characters?swt=false",
+					"host": [
+						"{{url}}features"
+					],
+					"path": [
+						"preprocess-as-characters"
+					],
+					"query": [
+						{
+							"key": "alphabet",
+							"value": "cyrillic",
+							"disabled": true
+						},
+						{
+							"key": "swt",
+							"value": "false"
+						}
+					]
+				},
+				"description": "Generate captchas with the following parameters:\nitems - # of captchas to generate\ncharacters - # of characters for each captcha to contain\nalphabet - alphabet to choose [chyrillic, latin, hebrew]\nlines - draw lines on captcha\nellipsis - draw dots on captcha\ndeform - boolean to deform the letters(skew shear)"
+			},
+			"response": []
+		},
+		{
+			"name": "Model - train",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}model/train",
+					"host": [
+						"{{url}}model"
+					],
+					"path": [
+						"train"
+					],
+					"query": [
+						{
+							"key": "alphabet",
+							"value": "cyrillic",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Generate captchas with the following parameters:\nitems - # of captchas to generate\ncharacters - # of characters for each captcha to contain\nalphabet - alphabet to choose [chyrillic, latin, hebrew]\nlines - draw lines on captcha\nellipsis - draw dots on captcha\ndeform - boolean to deform the letters(skew shear)"
+			},
+			"response": []
+		},
+		{
+			"name": "Data - generate captchas - test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}data/generate-captcha?characters=4&items=10&lines=true&ellipsis=true&deform=true",
+					"host": [
+						"{{url}}data"
+					],
+					"path": [
+						"generate-captcha"
+					],
+					"query": [
+						{
+							"key": "characters",
+							"value": "4"
+						},
+						{
+							"key": "items",
+							"value": "10"
+						},
+						{
+							"key": "alphabet",
+							"value": "cyrillic",
+							"disabled": true
+						},
+						{
+							"key": "lines",
+							"value": "true"
+						},
+						{
+							"key": "ellipsis",
+							"value": "true"
+						},
+						{
+							"key": "deform",
+							"value": "true"
+						}
+					]
+				},
+				"description": "Generate captchas with the following parameters:\nitems - # of captchas to generate\ncharacters - # of characters for each captcha to contain\nalphabet - alphabet to choose [chyrillic, latin, hebrew]\nlines - draw lines on captcha\nellipsis - draw dots on captcha\ndeform - boolean to deform the letters(skew shear)"
+			},
+			"response": []
+		},
+		{
+			"name": "Features - preprocess as words",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}features/preprocess-as-words?swt=false",
+					"host": [
+						"{{url}}features"
+					],
+					"path": [
+						"preprocess-as-words"
+					],
+					"query": [
+						{
+							"key": "alphabet",
+							"value": "cyrillic",
+							"disabled": true
+						},
+						{
+							"key": "swt",
+							"value": "false"
+						}
+					]
+				},
+				"description": "Generate captchas with the following parameters:\nitems - # of captchas to generate\ncharacters - # of characters for each captcha to contain\nalphabet - alphabet to choose [chyrillic, latin, hebrew]\nlines - draw lines on captcha\nellipsis - draw dots on captcha\ndeform - boolean to deform the letters(skew shear)"
+			},
+			"response": []
+		},
+		{
+			"name": "Model - test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}model/test",
+					"host": [
+						"{{url}}model"
+					],
+					"path": [
+						"test"
+					],
+					"query": [
+						{
+							"key": "alphabet",
+							"value": "cyrillic",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Generate captchas with the following parameters:\nitems - # of captchas to generate\ncharacters - # of characters for each captcha to contain\nalphabet - alphabet to choose [chyrillic, latin, hebrew]\nlines - draw lines on captcha\nellipsis - draw dots on captcha\ndeform - boolean to deform the letters(skew shear)"
+			},
+			"response": []
+		},
+		{
+			"name": "Model - predict",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/mihai/Desktop/cnas.ro/350220.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}model/predict",
+					"host": [
+						"{{url}}model"
+					],
+					"path": [
+						"predict"
+					],
+					"query": [
+						{
+							"key": "alphabet",
+							"value": "cyrillic",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Generate captchas with the following parameters:\nitems - # of captchas to generate\ncharacters - # of characters for each captcha to contain\nalphabet - alphabet to choose [chyrillic, latin, hebrew]\nlines - draw lines on captcha\nellipsis - draw dots on captcha\ndeform - boolean to deform the letters(skew shear)"
+			},
+			"response": []
+		}
+	]
+}
